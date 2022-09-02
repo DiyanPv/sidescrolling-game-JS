@@ -1,0 +1,10 @@
+.mainScreen {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  position: relative;
+}
+.backgroundImg {
+  width: 100%;
+  height: 100%;
+}

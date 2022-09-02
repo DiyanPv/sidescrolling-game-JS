@@ -1,0 +1,25 @@
+.button {
+  position: absolute;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+  padding: 30px 40px;
+  background: whitesmoke;
+  font-size: 1.8rem;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  transition: all 1s;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  font-style: italic;
+  text-decoration: none;
+  background-color: cornsilk;
+}
+
+.button:hover {
+  box-shadow: 2px -1px 14px 16px rgba(0, 0, 0, 0.82);
+  transition: box-shadow 0.3s ease-in-out;
+  color: white;
+  background-color: dimgrey;
+  cursor: pointer;
+}
