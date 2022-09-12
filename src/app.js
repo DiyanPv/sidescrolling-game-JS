@@ -4,7 +4,7 @@ function gameplay() {
   canvas.width = innerWidth;
   canvas.height = innerHeight;
   console.log(c);
-  const gravity = 0.04;
+  let gravity = 0.04;
   class Player {
     constructor() {
       (this.position = {
@@ -36,8 +36,7 @@ function gameplay() {
         this.position.y + this.size.height + this.velocity.y <=
         canvas.height
       ) {
-        const moveState = (this.velocity.y += gravity);
-        this.position.y += moveState;
+        this.position.y += this.velocity.y += gravity;
       } else {
         this.velocity.y = 0;
       }
@@ -46,15 +45,15 @@ function gameplay() {
   class Platform {
     constructor() {
       (this.position = {
-        x: 150,
-        y: 800,
+        x: 40,
+        y: 100,
       }),
         (this.width = 300),
         (this.height = 50);
     }
     draw() {
-      c.fillRect(this.position.x, this.position.y, this.width, this.height);
       c.fillStyle = `black`;
+      c.fillRect(this.position.x, this.position.y, this.width, this.height);
     }
   }
 
@@ -80,6 +79,16 @@ function gameplay() {
     }
     requestAnimationFrame(animate);
     c.clearRect(0, 0, canvas.width, canvas.height);
+    if (
+      (player.position.y + player.size.height <= platform.position.y &&
+        player.position.y + player.size.height + player.velocity.y >=platform.position.y  )
+    ) {
+      player.velocity.y = 0;
+      gravity = 0;
+    } if ( player.position.x <= platform.position.x - player.size.width || platform.position.x + platform.width <= player.position.x){
+        gravity = 0.04
+    }
+
     platform.draw();
     player.update();
   }
@@ -95,7 +104,7 @@ function gameplay() {
 
         break;
       case `KeyW`:
-        player.velocity.y -= 3;
+        player.velocity.y -= 2;
         break;
       case `KeyD`:
         keys.right.pressed = true;
