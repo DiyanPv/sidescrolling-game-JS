@@ -1,6 +1,7 @@
 function renderFrame(state, game, timestamp) {
   const movementSpeed = 4;
   const spriteMovement = 1;
+  const laserMovement = 6;
   window.requestAnimationFrame(renderFrame.bind(null, state, game));
   const { spaceship, bug } = state;
   const { spaceshipElement, bugElement } = game;
@@ -50,6 +51,17 @@ function renderFrame(state, game, timestamp) {
       monster.style.top = posY + spriteMovement + `px`;
     } else {
       monster.remove();
+    }
+  });
+
+  //render laser movement
+  document.querySelectorAll(`.laser`).forEach((x) => {
+    let posY = parseInt(x.style.top);
+
+    if (posY >= 0) {
+      x.style.top = posY - laserMovement + `px`;
+    } else {
+      x.remove();
     }
   });
 }
