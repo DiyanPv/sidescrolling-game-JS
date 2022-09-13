@@ -53,8 +53,8 @@ function renderFrame(state, game, timestamp) {
         const monsterPosition = monster.getBoundingClientRect();
         monster.remove();
         game.spawnDeathAnimation();
-        game.death.style.top = monsterPosition.x;
-        console.log(game.death);
+        game.death.style.top = monsterPosition.y + `px`;
+        game.death.style.left = monsterPosition.x + `px`;
         console.log(monsterPosition);
         setTimeout(() => {
           document

@@ -46,7 +46,6 @@ function elements() {
       death.classList.add(`deathAnimation`);
       gameScreenElement.appendChild(death);
       this.death = death;
-      
     },
   };
 }
