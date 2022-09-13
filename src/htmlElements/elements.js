@@ -36,8 +36,10 @@ function elements() {
       laserElement.style.top =
         spaceshipPosition.posY - spaceshipElement.offsetHeight + `px`;
       laserElement.style.left =
-        spaceshipPosition.posX + laserElement.offsetWidth +25 + `px`;
+        spaceshipPosition.posX + laserElement.offsetWidth + 25 + `px`;
       gameScreenElement.appendChild(laserElement);
+      this.laser = laserElement;
+      return laserElement;
     },
   };
 }
