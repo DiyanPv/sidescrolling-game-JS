@@ -18,6 +18,7 @@ function initState() {
       posY: Math.random(),
     },
     keys: {},
+   
   };
   return state;
 }

@@ -51,10 +51,16 @@ function renderFrame(state, game, timestamp) {
       detectCollision(monster, laser);
       if (hasCollision) {
         const monsterPosition = monster.getBoundingClientRect();
-        // state.spawn();
+        monster.remove();
+        game.spawnDeathAnimation();
+        game.death.style.top = monsterPosition.x;
+        console.log(game.death);
+        console.log(monsterPosition);
         setTimeout(() => {
-          monster.remove();
-        }, 20);
+          document
+            .querySelectorAll(`.deathAnimation`)
+            .forEach((el) => el.remove());
+        }, 140);
       }
     });
     let posY = parseInt(monster.style.top);

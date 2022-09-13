@@ -41,5 +41,12 @@ function elements() {
       this.laser = laserElement;
       return laserElement;
     },
+    spawnDeathAnimation() {
+      let death = document.createElement(`div`);
+      death.classList.add(`deathAnimation`);
+      gameScreenElement.appendChild(death);
+      this.death = death;
+      
+    },
   };
 }
