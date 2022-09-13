@@ -11,8 +11,6 @@ function gameplay() {
   });
 
   window.addEventListener(`keydown`, (e) => {
-
-    //move player
     const key = e.code;
     state.keys[e.code] = true;
   });

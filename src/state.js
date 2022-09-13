@@ -1,9 +1,11 @@
 function initState() {
+  let startX = 90;
+  let startY = window.innerHeight - 98;
   const state = {
     player: `Player 1`,
-    wizard: {
-      startX: 90,
-      startY: window.innerHeight - 98
+    spaceship: {
+      posX: startX,
+      posY: startY,
     },
     width: 98,
     height: 98,
