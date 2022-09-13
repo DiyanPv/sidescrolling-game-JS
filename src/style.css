@@ -1,5 +1,6 @@
 .game,
-body,html {
+body,
+html {
   margin: 0;
   height: 100%;
   width: 100%;
@@ -9,7 +10,6 @@ body,html {
     rgba(171, 221, 229, 1) 1%,
     rgba(171, 181, 181, 0.9475140397956058) 61%
   );
-  position: relative;
 }
 .start-screen-div {
   margin-top: 6%;
@@ -56,7 +56,36 @@ body,html {
   display: none;
   width: 100%;
   height: 100%;
+  position: relative;
   background-image: url("./images/tCz0AX4.png");
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.spaceship {
+  background-image: url("./images/ship__r1466271641.gif");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  top: 30vh;
+  display: inline-block;
+  outline: none !important;
+  border: none !important;
+}
+
+@media (max-width: 1200px) {
+  .spaceship {
+    width: 17%;
+  }
+}
+@media (max-width: 800px) {
+  .spaceship {
+    width: 22%;
+  }
+}
+@media (max-width: 550px) {
+  .spaceship {
+    width: 24%;
+    height: 11%;
+  }
 }
