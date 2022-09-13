@@ -7,6 +7,7 @@ function gameplay() {
     element.startScreenElement.classList.add(`hidden`);
     element.gameScreenElement.style.display = `block`;
     element.gameScreenElement.appendChild(element.createSpaceShip(state));
+
     start(state, element);
   });
 

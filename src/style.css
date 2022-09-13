@@ -35,19 +35,6 @@ html {
   box-shadow: 2px 1px 15px 16px #fefdff;
 }
 
-@media (max-width: 450px) {
-  .start-screen-div {
-    position: absolute;
-  }
-  .startScreenImg {
-    width: 350px;
-    position: relative;
-  }
-  .butonStart {
-    font-size: 1.5em;
-  }
-}
-
 .hidden {
   display: none;
 }
@@ -87,4 +74,25 @@ html {
     width: 24%;
     height: 11%;
   }
+  .startScreenImg {
+    width: 100%;
+    position: relative;
+  }
+  .butonStart {
+    font-size: 1.5em;
+  }
+  .start-screen-div {
+    top: 10%;
+
+    width: 90%;
+  }
+}
+
+.monster {
+  position: absolute;
+  background-image: url("./images/zubat_flying.gif");
+  width: 110px;
+  height: 120px;
+  display: inline;
+  background-size: cover;
 }

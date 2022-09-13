@@ -18,5 +18,16 @@ function elements() {
       this.spaceshipElement = spaceship;
       return spaceship;
     },
+    spawnBug(state) {
+      const bugElement = document.createElement(`div`);
+      bugElement.classList.add(`monster`);
+      bugElement.style.top = 0 + `px`;
+      bugElement.style.left =
+        Math.floor(Math.random() * (gameScreenElement.offsetWidth - 120)) +
+        `px`;
+      gameScreenElement.appendChild(bugElement);
+      this.bugElement = bugElement;
+      return bugElement;
+    },
   };
 }

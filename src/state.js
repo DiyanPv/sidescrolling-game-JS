@@ -9,6 +9,12 @@ function initState() {
     },
     width: 98,
     height: 98,
+    bug: {
+      height: 120,
+      width: 120,
+      posX: Math.random(),
+      posY: Math.random(),
+    },
     keys: {},
   };
   return state;
