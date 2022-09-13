@@ -1,7 +1,7 @@
 function renderFrame(state, game, timestamp) {
   console.log(timestamp);
-  const movementSpeed = 3;
-  const spriteMovement = 10;
+  const movementSpeed = 2.5;
+  const spriteMovement = 1;
   window.requestAnimationFrame(renderFrame.bind(null, state, game));
   const { spaceship, bug } = state;
   const { spaceshipElement, bugElement } = game;
@@ -35,9 +35,21 @@ function renderFrame(state, game, timestamp) {
     game.spawnBug(bug);
     bug.nextSpawn = timestamp + Math.random() + bug.maxSpawnTime;
   }
-  //render
+
+  //render wizard
   spaceshipElement.style.left = spaceship.posX + `px`;
   spaceshipElement.style.top = spaceship.posY + `px`;
+
+  //render bugs - movement
+  document.querySelectorAll(`.monster`).forEach((monster) => {
+    let posY = parseInt(monster.style.top);
+    console.log(monster);
+    if (posY < game.gameScreenElement.offsetHeight - 120) {
+      monster.style.top = posY + spriteMovement + `px`;
+    } else {
+      monster.remove();
+    }
+  });
 }
 
 function start(state, game) {

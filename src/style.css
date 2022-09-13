@@ -1,6 +1,7 @@
 .game,
 body,
 html {
+    color: transparent;
   margin: 0;
   height: 100%;
   width: 100%;
