@@ -13,8 +13,8 @@ function elements() {
       spaceship.style.width = initialState.width + `px`;
       spaceship.style.height = initialState.height + `px`;
 
-      spaceship.style.left = initialState.startX + `px`;
-      spaceship.style.top = initialState.startY + `px`;
+      spaceship.style.left = initialState.wizard.startX + `px`;
+      spaceship.style.top = initialState.wizard.startY + `px`;
     },
   };
 }

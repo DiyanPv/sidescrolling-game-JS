@@ -1,7 +1,7 @@
 function renderFrame(state, game) {
   window.requestAnimationFrame(renderFrame.bind(null, state, game));
-  game.createSpaceShip(state);
-  console.log(game);
+
+  console.log(state.keys);
 }
 
 function start(state, game) {
