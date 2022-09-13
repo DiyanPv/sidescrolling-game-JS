@@ -1,7 +1,7 @@
 .game,
 body,
 html {
-    color: transparent;
+  color: transparent;
   margin: 0;
   height: 100%;
   width: 100%;
@@ -96,4 +96,12 @@ html {
   height: 120px;
   display: inline;
   background-size: cover;
+}
+
+.laser {
+  position: absolute;
+  background-image: url("./images/laserVertical.png");
+  background-size: cover;
+  width: 40px;
+  height: 70px;
 }

@@ -1,6 +1,5 @@
 function renderFrame(state, game, timestamp) {
-  console.log(timestamp);
-  const movementSpeed = 2.5;
+  const movementSpeed = 4;
   const spriteMovement = 1;
   window.requestAnimationFrame(renderFrame.bind(null, state, game));
   const { spaceship, bug } = state;
@@ -8,9 +7,13 @@ function renderFrame(state, game, timestamp) {
   //move player
   modifySpaceshipPosition();
   function modifySpaceshipPosition() {
+    if (state.keys.Space) {
+      game.shootLaser(spaceship, spaceshipElement);
+    }
     if (state.keys.KeyD) {
       if (spaceship.posX <= window.innerWidth - (state.width + 4)) {
         spaceship.posX += movementSpeed;
+        console.log(spaceship.posX);
       }
     }
     if (state.keys.KeyW) {
@@ -43,7 +46,6 @@ function renderFrame(state, game, timestamp) {
   //render bugs - movement
   document.querySelectorAll(`.monster`).forEach((monster) => {
     let posY = parseInt(monster.style.top);
-    console.log(monster);
     if (posY < game.gameScreenElement.offsetHeight - 120) {
       monster.style.top = posY + spriteMovement + `px`;
     } else {

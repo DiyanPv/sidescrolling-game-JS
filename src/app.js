@@ -2,7 +2,7 @@ let element = elements();
 let state = initState();
 function gameplay() {
   //array of available key Codes
-  const availableKeys = [`KeyA`, `KeyD`, `KeyW`, `KeyS`];
+  const availableKeys = [`KeyA`, `KeyD`, `KeyW`, `KeyS`, `Space`];
   element.buttonStart.addEventListener(`click`, () => {
     element.startScreenElement.classList.add(`hidden`);
     element.gameScreenElement.style.display = `block`;

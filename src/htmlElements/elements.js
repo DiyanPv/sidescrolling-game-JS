@@ -14,7 +14,8 @@ function elements() {
       spaceship.style.height = initialState.height + `px`;
 
       spaceship.style.left = initialState.spaceship.posX + `px`;
-      spaceship.style.top = initialState.spaceship.posY + `px`;
+      spaceship.style.top =
+        initialState.spaceship.posY + spaceship.style.width + `px`;
       this.spaceshipElement = spaceship;
       return spaceship;
     },
@@ -28,6 +29,15 @@ function elements() {
       gameScreenElement.appendChild(bugElement);
       this.bugElement = bugElement;
       return bugElement;
+    },
+    shootLaser(spaceshipPosition, spaceshipElement) {
+      let laserElement = document.createElement(`div`);
+      laserElement.classList.add(`laser`);
+      laserElement.style.top =
+        spaceshipPosition.posY - spaceshipElement.offsetHeight + `px`;
+      laserElement.style.left =
+        spaceshipPosition.posX + laserElement.offsetWidth +25 + `px`;
+      gameScreenElement.appendChild(laserElement);
     },
   };
 }
