@@ -3,7 +3,7 @@ function renderFrame(state, game, timestamp) {
   const spriteMovement = 1;
   const laserMovement = 6;
   let hasCollision = false;
-  window.requestAnimationFrame(renderFrame.bind(null, state, game));
+  game.scoreScreen.textContent = `Your Score is : ${Math.floor(state.score)}`;
   const { spaceship, bug } = state;
   const { laser, bugElement, spaceshipElement } = game;
   //move player
@@ -11,7 +11,10 @@ function renderFrame(state, game, timestamp) {
 
   function modifySpaceshipPosition() {
     if (state.keys.Space) {
-      game.shootLaser(spaceship, spaceshipElement);
+      if (timestamp > state.cannon.nextShootTimestamp) {
+        game.shootLaser(spaceship, spaceshipElement);
+        state.cannon.nextShootTimestamp = timestamp + state.cannon.fireRate;
+      }
     }
     if (state.keys.KeyD) {
       if (spaceship.posX <= window.innerWidth - (state.width + 4)) {
@@ -45,13 +48,15 @@ function renderFrame(state, game, timestamp) {
   spaceshipElement.style.left = spaceship.posX + `px`;
   spaceshipElement.style.top = spaceship.posY + `px`;
 
-  //render bugs - movement
+  //render bugs - movement and check for laser/bug collision
   document.querySelectorAll(`.monster`).forEach((monster) => {
     document.querySelectorAll(`.laser`).forEach((laser) => {
       detectCollision(monster, laser);
       if (hasCollision) {
+        laser.remove();
         const monsterPosition = monster.getBoundingClientRect();
         monster.remove();
+        state.score += state.killEnemy;
         game.spawnDeathAnimation();
         game.death.style.top = monsterPosition.y + `px`;
         game.death.style.left = monsterPosition.x + `px`;
@@ -63,6 +68,11 @@ function renderFrame(state, game, timestamp) {
         }, 140);
       }
     });
+    //detect collision with spaceship
+    if (detectCollision(spaceshipElement, monster)) {
+      state.gameOver = true;
+    }
+
     let posY = parseInt(monster.style.top);
     if (posY < game.gameScreenElement.offsetHeight - 120) {
       monster.style.top = posY + spriteMovement + `px`;
@@ -74,7 +84,6 @@ function renderFrame(state, game, timestamp) {
   //render laser movement
   document.querySelectorAll(`.laser`).forEach((x) => {
     let posY = parseInt(x.style.top);
-
     if (posY >= 0) {
       x.style.top = posY - laserMovement + `px`;
     } else {
@@ -92,6 +101,16 @@ function renderFrame(state, game, timestamp) {
     );
     return hasCollision;
   }
+  if (state.gameOver) {
+    alert(`Game over!
+You have reached score: ${Math.floor(state.score)}`);
+    window.location.reload();
+  } else {
+    window.requestAnimationFrame(renderFrame.bind(null, state, game));
+    state.score += state.scoreRate;
+  }
+
+  //adding score
 }
 
 function start(state, game) {

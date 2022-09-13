@@ -2,11 +2,15 @@ function initState() {
   let startX = 90;
   let startY = window.innerHeight - 98;
   const state = {
+    scoreRate: 0.1,
+    killEnemy: 100,
+    score: 0,
     player: `Player 1`,
     spaceship: {
       posX: startX,
       posY: startY,
     },
+    gameOver: false,
     width: 98,
     height: 98,
     bug: {
@@ -17,8 +21,11 @@ function initState() {
       posX: Math.random(),
       posY: Math.random(),
     },
+    cannon: {
+      nextShootTimestamp: 30,
+      fireRate: 200,
+    },
     keys: {},
-   
   };
   return state;
 }

@@ -2,10 +2,12 @@ function elements() {
   const gameScreenElement = document.querySelector(`.gamescreen`);
   const startScreenElement = document.querySelector(`.start-screen-div`);
   const buttonStart = document.querySelector(`.butonStart`);
+  const scoreScreen = document.querySelector(`.score-screen`);
   return {
     gameScreenElement,
     startScreenElement,
     buttonStart,
+    scoreScreen,
     createSpaceShip(initialState) {
       let spaceship = document.createElement(`div`);
       spaceship.classList.add(`spaceship`);
