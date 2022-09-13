@@ -1,4 +1,5 @@
-function renderFrame(state, game) {
+function renderFrame(state, game, timestamp) {
+  console.log(timestamp);
   const movementSpeed = 3;
   const spriteMovement = 10;
   window.requestAnimationFrame(renderFrame.bind(null, state, game));
@@ -30,13 +31,17 @@ function renderFrame(state, game) {
   }
 
   //bugs spawner
-  game.spawnBug(bug);
-
+  if (timestamp > bug.nextSpawn) {
+    game.spawnBug(bug);
+    bug.nextSpawn = timestamp + Math.random() + bug.maxSpawnTime;
+  }
   //render
   spaceshipElement.style.left = spaceship.posX + `px`;
   spaceshipElement.style.top = spaceship.posY + `px`;
 }
 
 function start(state, game) {
-  window.requestAnimationFrame(renderFrame.bind(null, state, game));
+  window.requestAnimationFrame((timestamp) =>
+    renderFrame(state, game, timestamp)
+  );
 }

@@ -10,6 +10,8 @@ function initState() {
     width: 98,
     height: 98,
     bug: {
+      maxSpawnTime: 1500,
+      nextSpawn: 0,
       height: 120,
       width: 120,
       posX: Math.random(),
