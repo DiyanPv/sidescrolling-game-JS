@@ -71,24 +71,6 @@ html {
     width: 22%;
   }
 }
-@media (max-width: 550px) {
-  .spaceship {
-    width: 24%;
-    height: 11%;
-  }
-  .startScreenImg {
-    width: 100%;
-    position: relative;
-  }
-  .butonStart {
-    font-size: 1.5em;
-  }
-  .start-screen-div {
-    top: 10%;
-
-    width: 90%;
-  }
-}
 
 .monster {
   position: absolute;
@@ -122,4 +104,25 @@ html {
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   font-size: 2rem;
   color: wheat;
+}
+@media (max-width: 550px) {
+  .score-screen {
+    font-size: 0.7rem;
+  }
+  .spaceship {
+    width: 24%;
+    height: 11%;
+  }
+  .startScreenImg {
+    width: 100%;
+    position: relative;
+  }
+  .butonStart {
+    font-size: 1.5em;
+  }
+  .start-screen-div {
+    top: 10%;
+
+    width: 90%;
+  }
 }
