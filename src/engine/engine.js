@@ -60,7 +60,7 @@ function renderFrame(state, game, timestamp) {
         game.spawnDeathAnimation();
         game.death.style.top = monsterPosition.y + `px`;
         game.death.style.left = monsterPosition.x + `px`;
-        console.log(monsterPosition);
+
         setTimeout(() => {
           document
             .querySelectorAll(`.deathAnimation`)
@@ -94,10 +94,10 @@ function renderFrame(state, game, timestamp) {
     let first = objectA.getBoundingClientRect();
     let second = objectB.getBoundingClientRect();
     hasCollision = !(
-      first.top > second.bottom ||
-      first.bottom < second.top ||
-      first.right < second.left ||
-      first.left > second.right
+      first.top + 25 > second.bottom ||
+      first.bottom - 30 < second.top ||
+      first.right - 30 < second.left ||
+      first.left +30 > second.right
     );
     return hasCollision;
   }
