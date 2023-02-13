@@ -3,11 +3,28 @@ function elements() {
   const startScreenElement = document.querySelector(`.start-screen-div`);
   const buttonStart = document.querySelector(`.butonStart`);
   const scoreScreen = document.querySelector(`.score-screen`);
+  const buttonMoveLeft = document.createElement(`div`);
+  buttonMoveLeft.classList.add(`btnMove`);
+  const buttonMoveRight = document.createElement(`div`);
+  buttonMoveRight.classList.add(`btnMove`);
+
+  const buttonMoveDown = document.createElement(`div`);
+  buttonMoveDown.classList.add(`btnMove`);
+
+  const buttonMoveUp = document.createElement(`div`);
+  buttonMoveUp.classList.add(`btnMove`);
+  const buttonShoot = document.createElement(`div`);
+  buttonShoot.classList.add(`btnShoot`);
   return {
     gameScreenElement,
     startScreenElement,
     buttonStart,
     scoreScreen,
+    buttonMoveUp,
+    buttonMoveDown,
+    buttonMoveRight,
+    buttonMoveLeft,
+    buttonShoot,
     createSpaceShip(initialState) {
       let spaceship = document.createElement(`div`);
       spaceship.classList.add(`spaceship`);

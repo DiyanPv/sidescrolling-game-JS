@@ -126,3 +126,40 @@ html {
     width: 90%;
   }
 }
+
+.btnMove {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  border: 2px solid black;
+  background-color: white;
+}
+
+.btnMove.left {
+  bottom: 10px;
+  right: 75px;
+}
+.btnMove.right {
+  bottom: 10px;
+  right: 5px;
+}
+.btnMove.up {
+  bottom: 45px;
+  right: 40px;
+}
+.btnMove.down {
+  bottom: 10px;
+  right: 40px;
+}
+
+.btnShoot {
+  position: absolute;
+  left: 15px;
+  bottom: 10px;
+  height: 25px;
+  width: 60px;
+  border: 2px solid black;
+  background-color: white;
+  border-radius:15%;
+
+}
