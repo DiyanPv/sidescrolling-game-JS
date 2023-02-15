@@ -1,6 +1,6 @@
 function renderFrame(state, game, timestamp) {
-  const movementSpeed = 4;
-  const spriteMovement = 1;
+  const movementSpeed = 8;
+  const spriteMovement = 2.8;
   const laserMovement = 6;
   let hasCollision = false;
   game.scoreScreen.textContent = `Your Score is : ${Math.floor(state.score)}`;
