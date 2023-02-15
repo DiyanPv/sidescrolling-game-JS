@@ -1,7 +1,21 @@
 function renderFrame(state, game, timestamp) {
-  const movementSpeed = 8;
-  const spriteMovement = 2.8;
-  const laserMovement = 6;
+  let movementSpeed
+  let spriteMovement
+  let laserMovement
+
+  if(window.innerWidth <= 450){
+     movementSpeed = 4.5;
+     spriteMovement = 1.7;
+     laserMovement = 6;
+
+  }else{
+    movementSpeed = 8;
+    spriteMovement = 2.8;
+    laserMovement = 6;
+  }
+
+
+
   let hasCollision = false;
   game.scoreScreen.textContent = `Your Score is : ${Math.floor(state.score)}`;
   const { spaceship, bug } = state;
