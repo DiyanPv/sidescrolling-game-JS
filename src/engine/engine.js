@@ -9,9 +9,9 @@ function renderFrame(state, game, timestamp) {
      laserMovement = 6;
 
   }else{
-    movementSpeed = 8;
-    spriteMovement = 2.8;
-    laserMovement = 6;
+    movementSpeed = 6.3;
+    spriteMovement = 5.3;
+    laserMovement = 3;
   }
 
 
